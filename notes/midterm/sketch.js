@@ -28,12 +28,20 @@ var cone2Y = 390;
 var fruitY = 193;
 
 
+var syrupArray = [];
+
+
+var reset;
+
+var fruitOffX = 0;
+var fruitOffY = 0;
+
 function preload(){
 //fruit1 = loadImage("assets/fruit1.jpg");
-syrup1 = loadImage("assets/syrup1.png");
-syrup2 = loadImage("assets/syrup2.png");
-syrup3 = loadImage("assets/syrup3.png");
-syrup4 = loadImage("assets/syrup4.png");
+syrupArray[0] = loadImage("assets/syrup1.png");
+syrupArray[1] = loadImage("assets/syrup2.png");
+syrupArray[2] = loadImage("assets/syrup3.png");
+syrupArray[3] = loadImage("assets/syrup4.png");
 toppings1 = loadImage("assets/toppings1.png");
 toppings2 = loadImage("assets/toppings2.png");
 icecream1 = loadImage("assets/icecream1.png");
@@ -52,7 +60,7 @@ empty = loadImage("assets/empty.png");
 }
 
 function setup() {
-  // put setup code here
+  // put setup code here
 createCanvas(1024,1366);
 
 fruit = empty;
@@ -61,6 +69,16 @@ toppings = empty;
 icecream = empty;
 cone = empty;
 
+
+reset = createButton("Start Over");
+reset.position(70,620);
+reset.mousePressed(function(){
+  fruit = empty;
+  syrup = empty;
+  toppings = empty;
+  icecream = empty;
+  cone = empty;
+})
 
 
 
@@ -80,11 +98,10 @@ image(midtermicons2, 0,0, midtermicons2.width/6, midtermicons2.height/6);
 if(mouseX > 64 && mouseX < 85 && mouseY > 185 && mouseY < 215){
   if(mouseIsPressed == true){
     fruit = cherry1;
+    fruitOffX = 70;
+    fruitOffY = 25;
   }
-//if(mouseX > 20 && mouseX < (20 + cherry1.width/16) && mouseY > 20 && mouseY < 20 + cherry1.height/16){
-  if(mouseIsPressed == true){
-    fruit = cherry1;
-  }
+
 }
 
 //image(strawberry1, 20,60, strawberry1.width/16, strawberry1.height/16);
@@ -96,6 +113,8 @@ if(mouseX > 64 && mouseX < 85 && mouseY > 185 && mouseY < 215){
 if(mouseX > 126 && mouseX < (148) && mouseY > 190 && mouseY < 217){
   if(mouseIsPressed == true){
     fruit = strawberry1;
+    fruitOffX = 60;
+    fruitOffY = 25;
   }
 
 }
@@ -104,27 +123,27 @@ if(mouseX > 126 && mouseX < (148) && mouseY > 190 && mouseY < 217){
 
 if(mouseX > 58 && mouseX < (99) && mouseY > 260 && mouseY < 280){
   if(mouseIsPressed == true){
-    syrup = syrup1;
+    syrup = syrupArray[0];
   }
 
 }
 
 if(mouseX > 119 && mouseX < (168) && mouseY > 260 && mouseY < 280){
   if(mouseIsPressed == true){
-    syrup = syrup2;
+    syrup = syrupArray[1];
   }
 
 }
 
 if(mouseX > 58 && mouseX < (99) && mouseY > 287 && mouseY < 310){
   if(mouseIsPressed == true){
-    syrup = syrup3;
+    syrup = syrupArray[2];
   }
 
 }
 if(mouseX > 119 && mouseX < (168) && mouseY > 287 && mouseY < 310){
   if(mouseIsPressed == true){
-    syrup = syrup4;
+    syrup = syrupArray[3];
   }
 
 }
@@ -190,8 +209,8 @@ image(cone, entireicecreamPosX, cone1Y, cone1.width/4, cone1.height/4 );
 image(icecream, icecreamPosX, icecreamY, icecream.width/4, icecream.height/4 );
 image(syrup, entireicecreamPosX + 2, icecreamY -3, syrup.width/4, syrup.height/4 );
 image(toppings, entireicecreamPosX + 17, icecreamY, toppings.width/3.5, toppings.height/3.5 );
-image(fruit, entireicecreamPosX + 70, fruitY -25, fruit.width/5, fruit.height/5 );
-
+image(fruit, entireicecreamPosX + fruitOffX, fruitY - fruitOffY, fruit.width/5, fruit.height/5 );
+//70
 //code for strawberry
 //image(fruit, entireicecreamPosX + 42, fruitY, fruit.width/4, fruit.height/4 );
 
