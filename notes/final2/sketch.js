@@ -61,8 +61,8 @@ backgrounds[1] = loadImage("assets/university.jpg");
 dressoptions = loadImage ("assets/dressoptions.png")
 startpage = loadImage ("assets/startpage.jpg")
 empty = loadImage("assets/empty.png");
-
-
+pawphonelight = loadImage("assets/pawphonelight.png");
+pawphonelight2 = loadImage("assets/pawphonelight2.png");
 
 }
 
@@ -126,10 +126,6 @@ if(page == 1){
     }
 
   }
-
-
-
-
 
 
 //shortsleeve
@@ -199,24 +195,20 @@ if(mouseX > 946 && mouseX < (946 + 113)&& mouseY > 137 && mouseY < (137 + 113)){
 //outside of page 1 and 2 will work on all pages
 
 
-//icons
 
-//image(cherry1, 20,20, cherry1.width/16, cherry1.height/16);
-//
-// if(mouseX > 64 && mouseX < 85 && mouseY > 185 && mouseY < 215){
-//   if(mouseIsPressed == true){
-//     fruit = cherryArray[0];
-//     fruitOffX = 70;
-//     fruitOffY = 25;
-//   }
-//
-// }
 
-//image(strawberry1, 20,60, strawberry1.width/16, strawberry1.height/16);
+//pawphonelights
 
-//if(mouseX > 20 && mouseX < (20 + strawberry1.width/16) && mouseY > 60 && mouseY < 60 + strawberry1.height/16){
-  //if(mouseIsPressed == true){
-    //fruit = strawberry1;}}
+if(mouseX > 102 && mouseX < (102 + 23)&& mouseY > 560 && mouseY < (560 + 26)){
+
+image(pawphonelight, 102,560, pawphonelight.width, pawphonelight.height);
+  }
+
+  if(mouseX > 79 && mouseX < (79 + 35)&& mouseY > 676 && mouseY < (676 + 35)){
+
+  image(pawphonelight2, 79,676, pawphonelight2.width, pawphonelight2.height);
+    }
+
 
 
 
@@ -260,7 +252,7 @@ function mousePressed(){
   }
 
   // dress
-  if(mouseX > 55 && mouseX < (55 +69) && mouseY > 624 && mouseY < 624+25){
+  if(mouseX > 55 && mouseX < (55 +69) && mouseY > 624 && mouseY < 624+30){
     page = 3;}
 
 
