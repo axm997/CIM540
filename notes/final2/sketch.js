@@ -19,14 +19,7 @@ var sweatshirtButton;
 
 var currentImage = 0;
 
-var entireicecreamPosX = 360;
-var icecreamPosX = 333;
 
-
-var icecreamY = 240;
-var cone1Y = 420;
-var cone2Y = 390;
-var fruitY = 193;
 
 
 var bearheadArray = [];
@@ -38,21 +31,20 @@ var sweatshirtArray = [];
 
 var reset;
 
-var fruitOffX = 0;
-var fruitOffY = 0;
 
 var shirtButton;
 
-var page = 2;
+var page = 0;
 
+var dressoptions
 var backgrounds = [];
 var backgroundCounter = 0;
 
 
 
 function preload(){
-//fruit1 = loadImage("assets/fruit1.jpg");
 mainpage = loadImage("assets/mainpage.jpg");
+mainpagewith = loadImage("assets/mainpagewith.jpg");
 bearheadArray[0] = loadImage("assets/bearhead.png");
 bearbodyArray[0] = loadImage("assets/bearbody.png");
 shortsleeveArray[0] = loadImage("assets/shortsleeve1.png");
@@ -64,9 +56,10 @@ tankArray[2] = loadImage("assets/tank3.png");
 sweatshirtArray[0] = loadImage("assets/sweatshirt1.png");
 sweatshirtArray[1] = loadImage("assets/sweatshirt2.png");
 sweatshirtArray[2] = loadImage("assets/sweatshirt3.png");
-backgrounds[0] = loadImage("assets/nightclub.png");
-backgrounds[1] = loadImage("assets/sweatshirt3.png");
-
+backgrounds[0] = loadImage("assets/nightclub.jpg");
+backgrounds[1] = loadImage("assets/university.jpg");
+dressoptions = loadImage ("assets/dressoptions.png")
+startpage = loadImage ("assets/startpage.jpg")
 empty = loadImage("assets/empty.png");
 
 
@@ -84,13 +77,13 @@ createCanvas(1440,754);
 
 shirt = empty;
 
-reset = createButton("Start Over");
-reset.position(70,620);
-reset.mousePressed(function(){
-  shortsleeve = empty;
-  tank = empty;
-  sweatshirt = empty;
-});
+//reset = createButton("Start Over");
+//reset.position(70,620);
+//reset.mousePressed(function(){
+  //shortsleeve = empty;
+  //tank = empty;
+  //sweatshirt = empty;
+//});
 
 
 
@@ -102,9 +95,29 @@ reset.mousePressed(function(){
 
 
 
+
 function draw() {
 background(255);
+//startpage
+if(page == 0){
+  image(startpage, 0,0, startpage.width, startpage.height);
+  bearhead = empty;
+    bearbody = empty;}
 
+  if(mouseX > 609 && mouseX < (609+203) && mouseY > 478 && mouseY < (478+84))
+  { page = 1;
+//    if(mouseIsPressed == true)
+  //  {image(mainpage, 0,0, mainpage.width, mainpage.height);}
+
+
+
+}
+
+//mainpage with (dress)
+if(page == 3){
+  image(mainpagewith, 0,0, mainpagewith.width, mainpagewith.height);}
+
+//dresspage
 if(page == 1){
   image(mainpage, 0,0, mainpage.width, mainpage.height);
   if(mouseX > 695 && mouseX < (802) && mouseY > 190 && mouseY < 217){
@@ -116,27 +129,31 @@ if(page == 1){
 
 
 
-  if(mouseX > 58 && mouseX < (99) && mouseY > 260 && mouseY < 280){
-    if(mouseIsPressed == true){
-      shirt = shortsleeveArray[0];
-    }
 
+
+
+//shortsleeve
+if(mouseX > 702 && mouseX < (702 + 113)&& mouseY > 137 && mouseY < (137 + 113)){
+  if(mouseIsPressed == true){
+    shirt = shortsleeveArray[0];
   }
 
-  if(mouseX > 119 && mouseX < (168) && mouseY > 260 && mouseY < 280){
-    if(mouseIsPressed == true){
-      shirt = shortsleeveArray[1];
-    }
+}
 
+if(mouseX > 824 && mouseX < (824 + 113)&& mouseY > 137 && mouseY < (137 + 113)){
+  if(mouseIsPressed == true){
+    shirt = shortsleeveArray[1];
   }
 
-  if(mouseX > 58 && mouseX < (99) && mouseY > 287 && mouseY < 310){
-    if(mouseIsPressed == true){
-      shirt = shortsleeveArray[2];
-    }
+}
 
+if(mouseX > 946 && mouseX < (946 + 113)&& mouseY > 137 && mouseY < (137 + 113)){
+  if(mouseIsPressed == true){
+    shirt = shortsleeveArray[2];
   }
 
+}
+//tanks
   if(mouseX > 702 && mouseX < (702 + 113)&& mouseY > 258 && mouseY < (258 + 113)){
     if(mouseIsPressed == true){
       shirt = tankArray[0];
@@ -144,34 +161,34 @@ if(page == 1){
 
   }
 
-  if(mouseX > 119 && mouseX < (159) && mouseY > 231 && mouseY < 248){
+  if(mouseX > 824 && mouseX < (824 + 113)&& mouseY > 258 && mouseY < (258 + 113)){
     if(mouseIsPressed == true){
       shirt = tankArray[1];
     }
 
   }
-  //vanilla
-  if(mouseX > 46 && mouseX < (108) && mouseY > 314 && mouseY < 356){
+
+  if(mouseX > 946 && mouseX < (946 + 113)&& mouseY > 258 && mouseY < (258 + 113)){
     if(mouseIsPressed == true){
       shirt = tankArray[2];
     }
 
   }
-  //chocolate
-  if(mouseX > 114 && mouseX < (171) && mouseY > 314 && mouseY < 356){
+  //sweatshirts
+  if(mouseX > 702 && mouseX < (702 + 113)&& mouseY > 380 && mouseY < (380 + 113)){
     if(mouseIsPressed == true){
       shirt = sweatshirtArray[0];
     }}
-  //pink
-  if(mouseX > 46 && mouseX < (108) && mouseY > 365 && mouseY < 408){
-    if(mouseIsPressed == true){
-      shirt = sweatshirtArray[1];
-    }}
-  //green
-  if(mouseX > 114 && mouseX < (171) && mouseY > 365 && mouseY < 408){
-    if(mouseIsPressed == true){
-      shirt = sweatshirtArray[2];
-    }}
+
+    if(mouseX > 824 && mouseX < (824 + 113)&& mouseY > 380 && mouseY < (380 + 113)){
+      if(mouseIsPressed == true){
+        shirt = sweatshirtArray[1];
+      }}
+
+      if(mouseX > 945 && mouseX < (945 + 113)&& mouseY > 380 && mouseY < (380 + 113)){
+        if(mouseIsPressed == true){
+          shirt = sweatshirtArray[2];
+        }}
 
   //end of icons
 
@@ -205,13 +222,12 @@ if(page == 1){
 
 // build bear
 
-image(bearbodyArray[0],357,275, bearbodyArray[0].width/1.2, bearbodyArray[0].height/1.2 );
+image(bearbodyArray[0],357,275, bearbodyArray[0].width/1.2, bearbodyArray[0].height/1.2);
 
 
 //shirts
 
 image(shirt, 391,301, shortsleeveArray[0].width/4.8, shortsleeveArray[0].height/4.8);
-
 
 
 // image(shortsleeveArray[0], 391,301, shortsleeveArray[0].width/4.8, shortsleeveArray[0].height/4.8);
@@ -229,9 +245,10 @@ image(shirt, 391,301, shortsleeveArray[0].width/4.8, shortsleeveArray[0].height/
 
 
 image(bearheadArray[0], 412,205, bearheadArray[0].width/2.5, bearheadArray[0].height/2.5);
+
 //end build bear
 
-ellipse(700,260,20,20);
+//ellipse(700,260,20,20);
 
 }
 
@@ -239,10 +256,16 @@ function mousePressed(){
 
   //shirts
   if(mouseX > 114 && mouseX < (171) && mouseY > 365 && mouseY < 408){
-  page = 1;
+  page = 3;
   }
+
+  // dress
+  if(mouseX > 55 && mouseX < (55 +69) && mouseY > 624 && mouseY < 624+25){
+    page = 3;}
+
+
 //transport
-  if(mouseX > 114 && mouseX < (171) && mouseY > 365 && mouseY < 408){
+  if(mouseX > 55 && mouseX < (55 +69) && mouseY > 654 && mouseY < 654+25){
     page = 2;
     backgroundCounter = backgroundCounter + 1;
     if(backgroundCounter == 2){
