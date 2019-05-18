@@ -1,4 +1,4 @@
-//Club Bear - Ashley Maass - Creative Coding Final
+//Club Bear - Ashley Maass
 //Click start, dress your bear by clicking on his pawphone and trying on his shirts, then transport him to different locations! Move your cursor over the top right red light and  the bottom middle to light up. CLick on the music buttons to play and pause the music! Lastly, have fun and click the club bear logo to play again!
 
 var bearhead;
@@ -346,11 +346,12 @@ function mousePressed(){
 
 //hitzone on icons
 if(clubsound.isPlaying() != true){
-  //(mouseX > 55 && mouseX < (55 +69) && mouseY > 654 && mouseY < 654+25)
-  clubsound.play();
-}
 
-//clubsound.stop();
+  clubsound.play(mouseX > 1330 && mouseX < (1330 +21) && mouseY > 55 && mouseY < (55+22));
+
+}
+if(clubsound.isPlaying() != true){
+  clubsound.stop(mouseX > 1362 && mouseX < (1362 +32) && mouseY > 48 && mouseY < (48+32));
 
 }
 
@@ -371,4 +372,5 @@ function keyPressed(){
   if(keyCode == BACKSPACE){
     name = name.slice(0, name.length-1);
   }
+}
 }
