@@ -427,6 +427,8 @@ if(page == 4){if(mouseX > 616 && mouseX < (616 +43) && mouseY > 119 && mouseY < 
 //hitzone on icons
 
 
+
+
 if(clubsound.isPlaying() != true){
 
   clubsound.play(mouseX > 1330 && mouseX < (1330 +21) && mouseY > 55 && mouseY < (55+22));
@@ -438,6 +440,9 @@ if(clubsound.isPlaying() != true){
 
 }
 }
+
+
+
 function keyPressed(){
 
 
@@ -446,7 +451,7 @@ function keyPressed(){
 
       if(keyCode != BACKSPACE){
           name += key;
-          text('Arial Size 30',346,132);
+          font('Arial Size 30',346,132);
 
 
 
